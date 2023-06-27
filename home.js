@@ -16,11 +16,12 @@
 //     document.getElementById("results").innerHTML = result;
 // }
 
+
 $(document).ready(function () {
     $("#submit").click(function (e) {
         $.ajax({
-            type: "POST",
-            url: "https://api.weatherstack.com/current",
+            type: "GET",
+            url: "http://localhost:3000/",
             dataType: "json",
             success: function (result, status, xhr) {
                 var jsonResult = JSON.stringify(result);
