@@ -11,7 +11,6 @@ app.use(cors({
 }))
 
 app.get('/', (req, res) => {
-    console.log(process.env.API_KEY);
     var params = {
         access_key : process.env.API_KEY,
         query : "New York"
