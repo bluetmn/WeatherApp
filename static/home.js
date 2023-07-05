@@ -7,7 +7,7 @@ $(function () {
             url: "http://localhost:3000/submit",
             dataType: "json",
             data: {
-                "location": $("#location")
+                "location": $("#location").val()
             },
             success: function (result, status, xhr) {
                 var jsonResult = JSON.stringify(result);
