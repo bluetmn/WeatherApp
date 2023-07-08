@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(135, 200, 241)
+}
+
+#webTitle{
+    font-size: 35pt;
+    font-weight: lighter;
+    border-bottom: 2pt solid;
+}
+
+#prettyResults {
+    border: 2pt solid;
+    height: 200pt;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
