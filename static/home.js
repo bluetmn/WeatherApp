@@ -11,7 +11,8 @@ $(function () {
             success: function (result, status, xhr) {
                 var jsonResult = JSON.stringify(result);
                 var response = JSON.parse(result);
-                $("#results").text(jsonResult);
+                // $("#results").text(jsonResult);
+                console.log(jsonResult);
                 $("#prettyResults").append(`<h1 id="city"> ${response.location.name}, ${response.location.region} </h1>`);
                 var date = new Date(response.location.localtime.substring(0, 10));
                 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -23,7 +24,18 @@ $(function () {
                 }
                 $("#prettyResults").append(`<h2> ${weekdays[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()} ${observation_time}`);
                 $("#prettyResults").append(`<p> The weather is currently ${response.current.weather_descriptions} and ${response.current.temperature} degrees`);
-                $("#prettyResults").append(`<img src="${response.current.weather_icons}"`);
+                
+                if (JSON.stringify(response.current.weather_descriptions).toLowerCase().indexOf("sunny") !== -1) {
+                    $('body').css('background-image', 'url("static/sunny.png")');
+                    $('body').css('background-repeat', 'no-repeat');
+                    $('body').css('background-position', '120% 60%');
+                }
+                else if (JSON.stringify(response.current.weather_descriptions).toLowerCase().indexOf("cloudy") !== -1) {
+                    $('body').css('background-image', 'url("static/cloudy.png")');
+                    $('body').css('background-repeat', 'no-repeat');
+                    $('body').css('background-position', '100% 10%');
+                    $('body').css('background-size', '35% 100%');
+                }
             },
             error: function (xhr, status, error) {
                 alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
