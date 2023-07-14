@@ -6,16 +6,21 @@
     <title>Weather Homepage</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" href=""> -->
+    <link rel="stylesheet" href="static/home.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <script src="static/home.js"></script>
 </head>
 
 <body>
-    <h1>
-        Weather Central
-    </h1>
+    <span id="container">
+        <h1 id = webTitle>
+            Weather Central
+        </h1>
+        <div id="weatherIcon">
+        </div>
+    </span>
+   
     <div id="search">
         <label for="location"> Enter a location to check the current weather: </label>
         <input type="text" id="location" name="location">
@@ -23,6 +28,8 @@
 
         <p id="results">
         </p>
+        <div id="prettyResults">
+        </div>
         
     </div>
 </body>
