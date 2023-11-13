@@ -11,8 +11,11 @@ $(function () {
             success: function (result, status, xhr) {
                 var jsonResult = JSON.stringify(result);
                 var response = JSON.parse(result);
-                // $("#results").text(jsonResult);
                 console.log(jsonResult);
+
+                //clear previous results in the case of multiple searches
+                $("#prettyResults").empty()
+                
                 $("#prettyResults").append(`<h1 id="city"> ${response.location.name}, ${response.location.region} </h1>`);
                 var date = new Date(response.location.localtime.substring(0, 10));
                 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -37,7 +40,7 @@ $(function () {
                     $('body').css('background-size', '35% 100%');
                 }
 
-                document.getElementById('location').value = ''
+                $('#location').val('')
             },
             error: function (xhr, status, error) {
                 alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
