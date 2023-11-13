@@ -36,6 +36,8 @@ $(function () {
                     $('body').css('background-position', '100% 10%');
                     $('body').css('background-size', '35% 100%');
                 }
+
+                document.getElementById('location').value = ''
             },
             error: function (xhr, status, error) {
                 alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
